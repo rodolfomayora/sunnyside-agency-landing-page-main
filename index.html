@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Sunnyside agency landing page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="./css/normalize.css" />
+  <style>
+    /* barlow-600 */
+    @font-face {
+      font-family: "Barlow";
+      font-style: normal;
+      font-weight: 600;
+      src:
+        url("./fonts/Barlow/barlow-v12-latin-600.woff") format("woff"),
+        url("./fonts/Barlow/barlow-v12-latin-600.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    /* fraunces-700 */
+    @font-face {
+      font-display: swap;
+      font-family: "Fraunces";
+      font-style: normal;
+      src:
+        url("./fonts/Fraunces/fraunces-v30-latin-700.woff") format("woff"),
+        url("./fonts/Fraunces/fraunces-v30-latin-700.ttf") format("truetype");
+      font-weight: 700;
+    }
+
+    /* fraunces-900 */
+    @font-face {
+      font-family: "Fraunces";
+      font-style: normal;
+      font-weight: 900;
+      src:
+        url("./fonts/Fraunces/fraunces-v30-latin-900.woff") format("woff"),
+        url("./fonts/Fraunces/fraunces-v30-latin-900.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      /* Primary colors */
+      --blue-sky: #3dbeff;
+      --yellow: #ffd600;
+      --soft-red: #fe7261;
+      --green: #98d9c9;
+      --cayn: #90d4c5;
+      --gray-light: #fffbf8;
+      --transparent: rgba(0,0,0,0);
+
+      --dark-desaturated-cyan: hsl(167, 40%, 24%);
+      --dark-blue: hsl(198, 62%, 26%);
+      --dark-moderate-cyan: hsl(168, 34%, 41%);
+
+      /* Neutral colors */
+      --very-dark-desaturated-blue: hsl(212, 27%, 19%);
+      --very-dark-grayish-blue: hsl(213, 9%, 39%);
+      --dark-grayish-blue: hsl(232, 10%, 55%);
+      --grayish-blue: hsl(210, 4%, 67%);
+      --white: #ffffff;
+
+      /* conts */
+      --max-content-width: 1440px;
+    }
+
+    :root,
+    :root * {
+      box-sizing: border-box;
+      margin: 0;
+      border: none;
+      padding: 0;
+    }
+
+    html,
+    body {
+      font-family: "Barlow", "Fraunces", Arial;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+    }
+
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="header">
+      <!--
+        <div>
+          <div class="container">
+            <nav>
+              <a href="#0">About</a>
+              <a href="#0">Services</a>
+              <a href="#0">Projects</a>
+              <a href="#0">Contact</a>
+            </nav>
+          </div>
+        </div>
+      -->
+
+      <div class="container header__content">
+        <h1 class="title">We are creatives</h1>
+        <img class="icon"
+          src="./images/icon-arrow-down.svg"
+          alt="white arrow down icon"
+          height="141"
+          width="36"
+        />
+      </div>
+    </header>
+
+    <section class="transform-section">
+      <div class="container">
+        <h2>Transform your brand</h2>
+        <p>We are a full-service creative agency specializing in helping brands grow fast. 
+          Engage your clients through compelling visuals that do most of the marketing for you.</p>
+        <a href="#0">Learn more</a>
+      </div>
+    </section>
+
+    <section class="audience-section">
+      <div class="container">
+        <h2>Stand out to the right audience</h2>
+        <p>Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places. 
+        </p>
+        <a>Learn more</a>
+      </div>
+    </section>
+
+    <div class="creative-section">
+      <div class="container columns">
+        <section>
+          <h3>Graphic design</h3>
+          <p>Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</p>
+        </section>
+  
+        <section>
+          <h3>Photography</h3>
+          <p>Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="testimonials-section">
+      <div class="container">
+        <h3>Client testimonials</h3>
+        <ul>
+          <li>
+            We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.
+    Emily R.
+            Marketing Director
+          </li>
+          <li>
+            Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience.
+            Thomas S.
+            Chief Operating Officer
+          </li>
+          <li>
+            Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!
+            Jennie F.
+            Business Owner
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div></div>
+      <nav>
+        <a href="#0">About</a>
+        <a href="#0">Services</a>
+        <a href="#0">Projects</a>
+        <a href="#0">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
