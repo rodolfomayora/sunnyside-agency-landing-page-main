@@ -88,6 +88,73 @@
       margin: 0 auto;
     }
 
+    /* HEADER */
+    .header {
+      height: 538px;
+      background:
+        var(--transparent)
+        url('./images/mobile/image-header.jpg')
+        no-repeat
+        scroll
+        center 60% / cover;
+    }
+
+    .header__content {
+      padding-top: 145px;
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+      height: 100%;
+      
+    }
+    
+    .header__content .title {
+      max-width: 375px;
+      line-height: 49px;
+
+      font-family: 'Fraunces';
+      font-size: 39.2px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 7px;
+      font-weight: 900;
+      color: var(--white);
+      
+    }
+
+    .header__content .icon {
+      width: 36px;
+      height: 114px;
+      margin-top: 48px;
+    }
+
+    .transform-section {
+      height: 600px;
+      border: solid 2px var(--yellow);
+    }
+    
+    .audience-section {
+      height: 600px;
+      border: solid 2px var(--soft-red);
+    }
+
+    .creative-section {
+      height: 600px;
+      border: solid 2px var(--green);
+    }
+    
+    .testimonials-section {
+      height: 777px;
+      border: solid 2px black;
+    }
+
+    .columns {
+      display: flex;
+    }
+
+
+
 
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
