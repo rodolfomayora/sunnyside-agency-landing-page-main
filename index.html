@@ -95,6 +95,7 @@
     img {
       display: block;
       height: auto;
+      max-width: 100%;
     }
 
     .container {
@@ -404,16 +405,13 @@
 
     /* ######################### SECTION: ######################### */
 
-    /* .creative { */
-      /* height: 600px; */
-      /* border: solid 2px var(--green); */
-    /* } */
+    /* .creative {
+      height: 600px;
+    } */
 
     .graphic-design,
     .photography {
       padding: 105% 24px 58px;
-      /* background-color: var(--cayn); */
-      /* background-image: url("./images/mobile/image-graphic-design.jpg"); */
       background-repeat: no-repeat;
       background-position: top center;
       background-size: 100%;
@@ -460,7 +458,7 @@
     /* ######################### SECTION: testimonials ######################### */
 
     .testimonials {
-      padding: 65px 0;
+      padding: 64px 0 90px;
     }
 
     .testimonials__title {
@@ -529,8 +527,40 @@
       color: var(--grayish-blue);
     }
 
-    /* ######################### SECTION: pictures ######################### */
+    /* ######################### SECTION: decoration ######################### */
+    .decoration {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: auto;
+    }
 
+    .decoration__item {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+      margin-bottom: -1px;
+    }
+
+    .decoration__item:nth-of-type(1) {
+      background-image: url('./images/mobile/image-gallery-milkbottles.jpg');
+    }
+    
+    .decoration__item:nth-of-type(2) {
+      background-image: url('./images/mobile/image-gallery-orange.jpg');
+    }
+
+    .decoration__item:nth-of-type(3) {
+      background-image: url('./images/mobile/image-gallery-cone.jpg');
+    }
+
+    .decoration__item:nth-of-type(4) {
+      background-image: url('./images/mobile/image-gallery-sugar-cubes.jpg');
+    }
+
+    .decoration__scale-helper {
+      padding-top: 100%;
+      height: auto;
+    }
 
     /* ######################### FOOTER ######################### */
 
@@ -599,7 +629,7 @@
           class="stand-out__img"
           src="./images/mobile/image-stand-out.jpg"
           alt="Glass"
-        >
+        />
       </div>
         
       <div class="stand-out__info">
@@ -635,7 +665,7 @@
                   width="80"  
                   height="80"
                   alt="Client"
-                >
+                />
               </div>
             </div>
             <P class="testimony__description">We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.</P>
@@ -652,7 +682,7 @@
                   width="80"  
                   height="80"
                   alt="Client"
-                >
+                />
               </div>
             </div>
             <p class="testimony__description">Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience.</p>
@@ -669,7 +699,7 @@
                   width="80"  
                   height="80"
                   alt="Client"
-                >
+                />
               </div>
             </div>
             <p class="testimony__description">Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!</p>
@@ -679,11 +709,25 @@
         </ul>
       </div>
     </section>
+    
+    <div class="decoration">
+      <div class="decoration__item">
+        <div class="decoration__scale-helper"></div>
+      </div>
+      <div class="decoration__item">
+        <div class="decoration__scale-helper"></div>
+      </div>
+      <div class="decoration__item">
+        <div class="decoration__scale-helper"></div>
+      </div>
+      <div class="decoration__item">
+        <div class="decoration__scale-helper"></div>
+      </div>
+    </div>
   </main>
 
   <footer>
     <div class="container">
-      <div></div>
       <nav>
         <a href="#0">About</a>
         <a href="#0">Services</a>
