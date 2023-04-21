@@ -64,6 +64,7 @@
       --dark-grayish-blue: hsl(232, 10%, 55%);
       --grayish-blue: hsl(210, 4%, 67%);
       --white: #ffffff;
+      --black: #111111;
 
       /* conts */
       --max-content-width: 1440px;
@@ -83,12 +84,116 @@
       font-size: 18px;
     }
 
-    .container {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
+    a {
+      text-decoration: none;
     }
 
-    /* HEADER */
+    .container {
+      /* max-width: var(--max-content-width); */
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .js-hidden {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    /* ######################### NAVIGATION TOP ######################### */
+    .top-bar {
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .top-bar__wrapper {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      padding-bottom: 20px;
+    }
+
+    .top-bar__button {
+      line-height: 0;
+      background-color: var(--transparent);
+      cursor: pointer;
+    }
+
+    
+    .navigation {
+      position: absolute;
+      z-index: 1;
+      left: -2px;
+      right: 0;
+      top: 100%;
+      transform: translateY(30px);
+      padding: 40px 10px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 32px;
+      background-color: var(--white);
+      box-shadow: 0 0 2px 0 var(--very-dark-grayish-blue);
+    }
+
+    .navigation::before {
+      --size: 26px;
+      content: "";
+      position: absolute;
+      right: 0;
+      top: -24px;
+      width: 0;
+      height: 0;
+      border-top: solid var(--transparent) var(--size);
+      border-right: solid var(--white) var(--size);
+      box-shadow: 2px 0 2px -2px var(--very-dark-grayish-blue);
+    }
+
+    .navigation::after {
+      --size: 26px;
+      content: "";
+      position: absolute;
+      right: 8px;
+      z-index: 3;
+      top: -26px;
+      height: 35px;
+      width: 6px;
+      text-transform: capitalize;
+      box-shadow: -2px -1px 2px -2px var(--very-dark-grayish-blue);
+      transform: rotateZ(45deg);
+    }
+
+    .navigation__link {
+      font-size: 20px;
+      line-height: 25px;
+      letter-spacing: -0.2px;
+      color: var(--dark-grayish-blue);
+    }
+
+    .navigation__link--button {
+      display: inline-block;
+      padding: 0 30px;
+      line-height: 54px;
+      border-radius: 27px;
+      font-family: "Fraunces";
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.01px;
+      color: var(--black);
+      background-color: var(--yellow);
+    }
+
+
+
+    /* ######################### HEADER ######################### */
     .header {
       height: 538px;
       background:
@@ -100,13 +205,11 @@
     }
 
     .header__content {
-      padding-top: 145px;
       display: flex;
       flex-direction: column;
-      /* justify-content: center; */
       align-items: center;
       height: 100%;
-      
+      padding-top: 145px;
     }
     
     .header__content .title {
@@ -129,6 +232,9 @@
       margin-top: 48px;
     }
 
+
+
+    /* SECTION: */
     .transform-section {
       height: 600px;
       border: solid 2px var(--yellow);
@@ -155,38 +261,45 @@
 
 
 
-
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+
   </style>
 </head>
+
 <body>
-  <main>
-    <header class="header">
-      <!--
-        <div>
-          <div class="container">
-            <nav>
-              <a href="#0">About</a>
-              <a href="#0">Services</a>
-              <a href="#0">Projects</a>
-              <a href="#0">Contact</a>
-            </nav>
-          </div>
-        </div>
-      -->
-
-      <div class="container header__content">
-        <h1 class="title">We are creatives</h1>
-        <img class="icon"
-          src="./images/icon-arrow-down.svg"
-          alt="white arrow down icon"
-          height="141"
-          width="36"
-        />
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar__wrapper">
+        <img src="./images/svg/logo.svg" alt="Sunnyside's Logo">
+  
+        <button id="button" class="top-bar__button">
+          <img src="./images/svg/icon-hamburger.svg" alt="button's menu icon">
+        </button>
+        
+        <nav id="navigation" class="navigation js-hidden">
+          <a class="navigation__link" href="#0">About</a>
+          <a class="navigation__link" href="#0">Services</a>
+          <a class="navigation__link" href="#0">Projects</a>
+          <a class="navigation__link navigation__link--button" href="#0">Contact</a>
+        </nav>
       </div>
-    </header>
+    </div>
+  </div>
 
+  <header class="header">
+    <div class="container header__content">
+      <h1 class="title">We are creatives</h1>
+      <img class="icon"
+        src="./images/svg/icon-arrow-down.svg"
+        alt="white arrow down icon"
+        height="141"
+        width="36"
+      />
+    </div>
+  </header>
+
+  <main>
     <section class="transform-section">
       <div class="container">
         <h2>Transform your brand</h2>
@@ -261,5 +374,16 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <script>
+    const $button = document.getElementById("button");
+    const $navigation = document.getElementById("navigation");
+
+    const handleClick = () => {
+      $navigation.classList.toggle("js-hidden");
+    }
+    
+    $button.addEventListener("click", handleClick);
+  </script>
 </body>
 </html>
