@@ -108,6 +108,7 @@
       top: 0;
       left: 0;
       right: 0;
+      transition: all .2s linear;
     }
 
     .top-bar__wrapper {
@@ -117,6 +118,7 @@
       align-items: center;
       padding-top: 32px;
       padding-bottom: 20px;
+      transition: padding-top .2s linear;
     }
 
     .top-bar__button {
@@ -125,7 +127,6 @@
       cursor: pointer;
     }
 
-    
     .navigation {
       position: absolute;
       z-index: 1;
@@ -141,6 +142,7 @@
       row-gap: 32px;
       background-color: var(--white);
       box-shadow: 0 0 2px 0 var(--very-dark-grayish-blue);
+      transition: transform .2s linear;
     }
 
     .navigation::before {
@@ -191,7 +193,19 @@
       background-color: var(--yellow);
     }
 
+    .js-top-bar--scroll {
+      background-color: var(--blue-sky);
+      box-shadow: 0 1px 4px 0 var(--very-dark-grayish-blue);
+    }
 
+    .js-top-bar--scroll .top-bar__wrapper {
+      padding-top: 20px;
+      padding-bottom: 17px;
+    }
+
+    .js-top-bar--scroll .navigation {
+      transform: translateY(25px);
+    } 
 
     /* ######################### HEADER ######################### */
     .header {
@@ -268,7 +282,7 @@
 </head>
 
 <body>
-  <div class="top-bar">
+  <div id="top-bar" class="top-bar">
     <div class="container">
       <div class="top-bar__wrapper">
         <img src="./images/svg/logo.svg" alt="Sunnyside's Logo">
@@ -376,14 +390,44 @@
   </div>
 
   <script>
-    const $button = document.getElementById("button");
+    const $topBar = document.getElementById("top-bar");
     const $navigation = document.getElementById("navigation");
+    const $button = document.getElementById("button");
+
+    const miliseconds = 200;
+    const state = {
+      didUserScroll: false
+    }
 
     const handleClick = () => {
       $navigation.classList.toggle("js-hidden");
     }
-    
+
+    const setDidUserScroll = (value) => {
+      state.didUserScroll = value;
+    }
+
+    const handleUserScroll = () => {
+      if (state.didUserScroll) {
+        setDidUserScroll(false);
+
+        const { classList } = $topBar;
+        const initialScrollPoint = 0;
+        const currentScrollPoint = window.pageYOffset;
+
+        const isScrollInTop = currentScrollPoint === initialScrollPoint;
+        if (isScrollInTop) classList.remove("js-top-bar--scroll");
+        
+        const isScrollDown = !isScrollInTop && !classList.contains("js-top-bar--scroll");
+        if (isScrollDown) classList.add("js-top-bar--scroll");
+      }
+    }
+
+    const handleScroll = () => setDidUserScroll(true);
+
     $button.addEventListener("click", handleClick);
+    window.setInterval(handleUserScroll, miliseconds);
+    window.addEventListener("scroll", handleScroll);
   </script>
 </body>
 </html>
