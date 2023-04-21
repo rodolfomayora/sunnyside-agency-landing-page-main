@@ -48,6 +48,7 @@
       /* Primary colors */
       --blue-sky: #3dbeff;
       --yellow: #ffd600;
+      --yellow-light: #fff5bc;
       --soft-red: #fe7261;
       --green: #98d9c9;
       --cayn: #90d4c5;
@@ -248,12 +249,82 @@
 
 
 
-    /* SECTION: */
-    .transform-section {
-      height: 600px;
-      border: solid 2px var(--yellow);
+    /* ######################### SECTION: transform ######################### */
+    .transform {
+      /* height: 600px; */
+      /* border: solid 2px var(--yellow); */
+      
+    }
+
+    .transform__img-wrapper {
+      text-align: center;
+      background-color: var(--yellow  );
+      height: 312px;
     }
     
+    .transform__img {
+      max-height: 100%;
+    }
+
+    .transform__info {
+      padding: 60px 28px;
+      display: grid;
+      grid-auto-rows: auto;
+      justify-items: center;
+      row-gap: 29px;
+    }
+
+    .tranform-section__title {
+      max-width: 320px;
+      text-align: center;
+      font-family: "Fraunces";
+      font-weight: 900;
+      font-size: 33px;
+      line-height: 39px;
+      letter-spacing: -0.9px;
+      word-spacing: 2px;
+      margin-right: 2px;
+    }
+
+    .transform__description {
+      max-width: 320px;
+      font-family: "Barlow";
+      font-size: 18px;
+      text-align: center;
+      line-height: 30px;
+      margin-top: -5px;
+      letter-spacing: -0.1px;
+    }
+
+    .transform__link {
+      position: relative;
+      display: inline-block;
+      font-family: "Fraunces";
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 30px;
+      margin-right: 3px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .transform__link::before {
+      position: absolute;
+      z-index: -1;
+      bottom: 2px;
+      content: "";
+      display: inline-block;
+      left: 50%;
+      width: 114%;
+      height: 10px;
+      transform: translateX(-49%);
+      border-radius: 5px;
+      background-color: var(--yellow-light);
+    }
+
+    
+    /* ######################### SECTION: ######################### */
     .audience-section {
       height: 600px;
       border: solid 2px var(--soft-red);
@@ -314,12 +385,21 @@
   </header>
 
   <main>
-    <section class="transform-section">
-      <div class="container">
-        <h2>Transform your brand</h2>
-        <p>We are a full-service creative agency specializing in helping brands grow fast. 
+    <section class="transform">
+      <div class="transform__img-wrapper">
+        <img
+          class="transform__img"
+          src="./images/mobile/image-transform.jpg"
+          alt="Egg"
+          height="312"
+        >
+      </div>
+
+      <div class="transform__info">
+        <h2 class="tranform-section__title">Transform your brand</h2>
+        <p class="transform__description">We are a full-service creative agency specializing in helping brands grow fast. 
           Engage your clients through compelling visuals that do most of the marketing for you.</p>
-        <a href="#0">Learn more</a>
+        <a class="transform__link" href="#0">Learn more</a>
       </div>
     </section>
 
