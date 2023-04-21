@@ -47,16 +47,18 @@
     :root {
       /* Primary colors */
       --blue-sky: #3dbeff;
+      --blue-sky-light: #5cd0ff;
       --yellow: #ffd600;
       --yellow-light: #fff5bc;
       --soft-red: #fe7261;
+      --soft-red-light: #fad9d4;
       --green: #98d9c9;
       --cayn: #90d4c5;
       --gray-light: #fffbf8;
       --transparent: rgba(0,0,0,0);
 
-      --dark-desaturated-cyan: hsl(167, 40%, 24%);
-      --dark-blue: hsl(198, 62%, 26%);
+      --dark-desaturated-cyan: #25564b;
+      --dark-blue: #19536b;
       --dark-moderate-cyan: hsl(168, 34%, 41%);
 
       /* Neutral colors */
@@ -87,6 +89,12 @@
 
     a {
       text-decoration: none;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      height: auto;
     }
 
     .container {
@@ -210,13 +218,13 @@
 
     /* ######################### HEADER ######################### */
     .header {
-      height: 538px;
+      min-height: 538px;
       background:
         var(--transparent)
         url('./images/mobile/image-header.jpg')
         no-repeat
         scroll
-        center 60% / cover;
+        center 80% / cover;
     }
 
     .header__content {
@@ -225,12 +233,12 @@
       align-items: center;
       height: 100%;
       padding-top: 145px;
+      padding-bottom: 35%;
     }
     
     .header__content .title {
       max-width: 375px;
       line-height: 49px;
-
       font-family: 'Fraunces';
       font-size: 39.2px;
       text-align: center;
@@ -238,7 +246,6 @@
       letter-spacing: 7px;
       font-weight: 900;
       color: var(--white);
-      
     }
 
     .header__content .icon {
@@ -248,33 +255,32 @@
     }
 
 
-
     /* ######################### SECTION: transform ######################### */
-    .transform {
-      /* height: 600px; */
-      /* border: solid 2px var(--yellow); */
+    /* .transform {
+      height: 600px;
+      border: solid 2px var(--yellow);
       
-    }
+    } */
 
-    .transform__img-wrapper {
-      text-align: center;
+    /* .transform__img-wrapper {
       background-color: var(--yellow  );
-      height: 312px;
-    }
+    } */
     
     .transform__img {
       max-height: 100%;
+      max-width: 100%;
+      width: 100%;
     }
 
     .transform__info {
-      padding: 60px 28px;
+      padding: 64px 28px 62px;
       display: grid;
       grid-auto-rows: auto;
       justify-items: center;
       row-gap: 29px;
     }
 
-    .tranform-section__title {
+    .transform__title {
       max-width: 320px;
       text-align: center;
       font-family: "Fraunces";
@@ -324,17 +330,139 @@
     }
 
     
-    /* ######################### SECTION: ######################### */
-    .audience-section {
+    /* ######################### SECTION: stand out ######################### */
+    /* .stand-out {
       height: 600px;
-      border: solid 2px var(--soft-red);
+    } */
+
+    /* .stand-out__img-wrapper {
+      background-color: var(--soft-red);
+    } */
+
+    .stand-out__img {
+      max-height: 100%;
+      max-width: 100%;
+      width: 100%;
     }
 
-    .creative-section {
-      height: 600px;
-      border: solid 2px var(--green);
+    .stand-out__info {
+      padding: 64px 28px 62px;
+      display: grid;
+      grid-auto-rows: auto;
+      justify-items: center;
+      row-gap: 29px;
     }
-    
+
+    .stand-out__title {
+      max-width: 320px;
+      text-align: center;
+      font-family: "Fraunces";
+      font-weight: 900;
+      font-size: 33px;
+      line-height: 39px;
+      letter-spacing: -0.9px;
+      word-spacing: 2px;
+      margin-right: 2px;
+    }
+
+    .stand-out__description {
+      max-width: 320px;
+      font-family: "Barlow";
+      font-size: 18px;
+      text-align: center;
+      line-height: 30px;
+      margin-top: -5px;
+      letter-spacing: -0.1px;
+    }
+
+    .stand-out__link {
+      position: relative;
+      display: inline-block;
+      font-family: "Fraunces";
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 30px;
+      margin-right: 3px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .stand-out__link::before {
+      position: absolute;
+      z-index: -1;
+      bottom: 2px;
+      content: "";
+      display: inline-block;
+      left: 50%;
+      width: 114%;
+      height: 10px;
+      transform: translateX(-49%);
+      border-radius: 5px;
+      background-color: var(--soft-red-light);
+    }
+
+
+    /* ######################### SECTION: ######################### */
+
+    /* .creative { */
+      /* height: 600px; */
+      /* border: solid 2px var(--green); */
+    /* } */
+
+    .graphic-design,
+    .photography {
+      padding: 104.8% 24px 60px;
+      /* background-color: var(--cayn); */
+      /* background-image: url("./images/mobile/image-graphic-design.jpg"); */
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100%;
+      text-align: center;
+    }
+
+    .graphic-design {
+      color: var(--dark-desaturated-cyan);
+      background-color: var(--cayn);
+      background-image: url("./images/mobile/image-graphic-design.jpg");
+    }
+
+    .photography {
+      color: var(--dark-blue);
+      background-color: var(--blue-sky-light);
+      background-image: url("./images/mobile/image-photography.jpg");
+    }
+
+    .graphic-design__title,
+    .photography__title {
+      font-family: "Fraunces";
+      font-size: 28px;
+      line-height: 42px;
+      font-weight: 900;
+      letter-spacing: -0.1px;
+      text-transform: capitalize;
+      margin-bottom: 25px;
+    }
+
+    .photography__title {
+      padding-right: 3px;
+      padding-right: 12px;
+    }
+
+    .graphic-design__description,
+    .photography__description {
+      max-width: 330px;
+      margin: 0 auto;
+      letter-spacing: -1px;
+      line-height: 27px;
+    }
+
+    /* .photography {
+      padding-top: 30%;
+    } */
+
+    /* ######################### SECTION: ######################### */
+
     .testimonials-section {
       height: 777px;
       border: solid 2px black;
@@ -396,34 +524,40 @@
       </div>
 
       <div class="transform__info">
-        <h2 class="tranform-section__title">Transform your brand</h2>
+        <h2 class="transform__title">Transform your brand</h2>
         <p class="transform__description">We are a full-service creative agency specializing in helping brands grow fast. 
           Engage your clients through compelling visuals that do most of the marketing for you.</p>
         <a class="transform__link" href="#0">Learn more</a>
       </div>
     </section>
 
-    <section class="audience-section">
-      <div class="container">
-        <h2>Stand out to the right audience</h2>
-        <p>Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places. 
+    <section class="stand-out">
+      <div class="stand-out__img-wrapper">
+        <img
+          class="stand-out__img"
+          src="./images/mobile/image-stand-out.jpg"
+          alt="Glass"
+        >
+      </div>
+        
+      <div class="stand-out__info">
+        <h2 class="stand-out__title">Stand out to the right audience</h2>
+        <p class="stand-out__description">Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places. 
         </p>
-        <a>Learn more</a>
+        <a class="stand-out__link">Learn more</a>
       </div>
     </section>
 
-    <div class="creative-section">
-      <div class="container columns">
-        <section>
-          <h3>Graphic design</h3>
-          <p>Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</p>
-        </section>
-  
-        <section>
-          <h3>Photography</h3>
-          <p>Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</p>
-        </section>
-      </div>
+    <div class="creative">
+      <section class="graphic-design">
+        <h3 class="graphic-design__title">Graphic design</h3>
+        <p class="graphic-design__description">Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</p>
+      </section>
+
+      <section class="photography">
+        <h3 class="photography__title">Photography</h3>
+        <p class="photography__description">Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</p>
+      </section>
     </div>
 
     <section class="testimonials-section">
