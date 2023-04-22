@@ -419,6 +419,15 @@
       background-color: var(--yellow-light);
     }
 
+    @media only screen and (min-width:768px) {
+      .transform {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        direction: rtl;
+      }
+    }
+
+
     /* ######################### SECTION: stand out ######################### */
     /* .stand-out {
       height: 600px;
@@ -491,6 +500,13 @@
       background-color: var(--soft-red-light);
     }
 
+    @media only screen and (min-width:768px) {
+      .stand-out {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+      }
+    }
 
     /* ######################### SECTION: creativity ######################### */
     /* .creativity {
@@ -542,6 +558,13 @@
       line-height: 27px;
     }
 
+    @media only screen and (min-width:768px) {
+      .creativity {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
 
     /* ######################### SECTION: testimonials ######################### */
     .testimonials {
@@ -561,10 +584,11 @@
     }
 
     .testimonials__list {
-      display: grid;
-      grid-auto-rows: auto;
-      justify-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       row-gap: 68px;
+      column-gap: 36px;
     }
 
     .testimony {
@@ -612,6 +636,37 @@
     .testimony__labor {
       font-size: 14px;
       color: var(--grayish-blue);
+    }
+
+    @media only screen and (min-width:768px) {
+      .testimonials {
+        padding-top: 160px;
+        padding-bottom: 164px;
+      }
+
+      .testimonials__title {
+        font-size: 22.6px;
+        line-height: 24px;
+        margin-bottom: 82px;
+      }
+
+      .testimony {
+        max-width: 344px;
+      }
+
+      .testimony__image-wrapper {
+        margin-bottom: 60px
+      }
+
+      .testimony__description {
+        margin-bottom: 70px;
+      }
+
+      .testimony__name,
+      .testimony__labor {
+        margin-right: 18px;
+      }
+
     }
 
     /* ######################### SECTION: decoration ######################### */
@@ -757,7 +812,6 @@
           height="312"
         >
       </div>
-
       <div class="transform__info">
         <h2 class="transform__title">Transform your brand</h2>
         <p class="transform__description">We are a full-service creative agency specializing in helping brands grow fast. 
@@ -783,7 +837,7 @@
       </div>
     </section>
 
-    <div class="creative">
+    <div class="creativity">
       <section class="graphic-design">
         <h3 class="graphic-design__title">Graphic design</h3>
         <p class="graphic-design__description">Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</p>
