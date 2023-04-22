@@ -112,6 +112,16 @@
       overflow: hidden;
     }
 
+    @media only screen and (min-width:768px) {
+      .container {
+        box-sizing: content-box;
+        max-width: var(--max-content-width);
+        margin: 0 auto;
+        padding-left: 40px;
+        padding-right: 40px
+      }
+    }
+
     /* ######################### NAVIGATION TOP ######################### */
     .top-bar {
       position: fixed;
@@ -130,6 +140,10 @@
       padding-top: 32px;
       padding-bottom: 20px;
       transition: padding-top .2s linear;
+    }
+
+    .top-bar___logo {
+      width: 124px;
     }
 
     .top-bar__button {
@@ -170,7 +184,6 @@
     }
 
     .navigation::after {
-      --size: 26px;
       content: "";
       position: absolute;
       right: 8px;
@@ -216,13 +229,65 @@
 
     .js-top-bar--scroll .navigation {
       transform: translateY(25px);
-    } 
+    }
+
+    @media only screen and (min-width:768px) {
+      .top-bar__wrapper {
+        padding-top: 35px;
+      }
+
+      .top-bar__logo {
+        width: 170px;
+      }
+
+      .top-bar__button {
+        display: none;
+      }
+
+      .navigation {
+        top: initial;
+        right: initial;
+        left: initial;
+        transform: none;
+        position: relative;
+        flex-direction: row;
+        min-height: auto;
+        box-shadow: none;
+        padding: 0;
+        background-color: var(--transparent);
+        margin-right: 9px;
+        column-gap: 48px;
+        visibility: visible;
+        width: auto;
+        height: auto;
+        overflow: auto;
+      }
+
+      .navigation::before,
+      .navigation::after {
+        content: none;
+      }
+
+      .navigation__link {
+        letter-spacing: -1px;
+        color: var(--white);
+      }
+
+      .navigation__link--button {
+        background-color: var(--white);
+      }
+
+      .js-top-bar--scroll .navigation {
+        transform: none;
+      }
+    }
+
 
     /* ######################### HEADER ######################### */
     .header {
       min-height: 538px;
       background:
-        var(--transparent)
+        var(--blue-sky)
         url('./images/mobile/image-header.jpg')
         no-repeat
         scroll
@@ -254,6 +319,29 @@
       width: 36px;
       height: 114px;
       margin-top: 48px;
+    }
+
+    @media only screen and (min-width:768px) {
+      .header {
+        height: 800px;
+        background-image: url('./images/desktop/image-header.jpg');
+        background-size: auto 100%;
+      }
+
+      .header__content {
+        padding-top: 205px;
+        padding-bottom: 0;
+      }
+
+      .header__content .title {
+        max-width: none;
+        font-size: 55px;
+        letter-spacing: 9.8px;
+      }
+
+      .header__content .icon {
+        margin-top: 103px;
+      }
     }
 
     /* ######################### SECTION: transform ######################### */
@@ -627,17 +715,21 @@
   <div id="top-bar" class="top-bar">
     <div class="container">
       <div class="top-bar__wrapper">
-        <img src="./images/svg/logo.svg" alt="Sunnyside's Logo">
-  
+        <img
+          class="top-bar__logo"
+          src="./images/svg/logo.svg"
+          width="124"
+          height="24"
+          alt="Sunnyside's Logo"
+        />
         <button id="button" class="top-bar__button">
           <img src="./images/svg/icon-hamburger.svg" alt="button's menu icon">
         </button>
-        
         <nav id="navigation" class="navigation js-hidden">
           <a class="navigation__link" href="#0">About</a>
           <a class="navigation__link" href="#0">Services</a>
           <a class="navigation__link" href="#0">Projects</a>
-          <a class="navigation__link navigation__link--button" href="#0">Contact</a>
+          <a class="navigation__link--button" href="#0">Contact</a>
         </nav>
       </div>
     </div>
@@ -821,40 +913,75 @@
     const $navigation = document.getElementById("navigation");
     const $button = document.getElementById("button");
 
+    const cssClasssHidden = "js-hidden";
+    const cssClassTopBarScroll = "js-top-bar--scroll";
+
     const miliseconds = 200;
     const state = {
-      didUserScroll: false
+      didUserScroll: false,
+      didUserResize: false,
+      isDesktop    : false
     }
 
     const handleClick = () => {
-      $navigation.classList.toggle("js-hidden");
+      $navigation.classList.toggle(cssClasssHidden);
     }
 
     const setDidUserScroll = (value) => {
       state.didUserScroll = value;
     }
 
+    const setDidUserResize = (value) => {
+      state.didUserResize = value;
+    }
+
+    const setIsDesktop = (value) => {
+      state.isDesktop = value;
+    }
+
     const handleUserScroll = () => {
-      if (state.didUserScroll) {
-        setDidUserScroll(false);
+      if (!state.didUserScroll) return;
+      setDidUserScroll(false);
 
-        const { classList } = $topBar;
-        const initialScrollPoint = 0;
-        const currentScrollPoint = window.pageYOffset;
+      const { classList } = $topBar;
+      const initialScrollPoint = 0;
+      const currentScrollPoint = window.pageYOffset;
 
-        const isScrollInTop = currentScrollPoint === initialScrollPoint;
-        if (isScrollInTop) classList.remove("js-top-bar--scroll");
-        
-        const isScrollDown = !isScrollInTop && !classList.contains("js-top-bar--scroll");
-        if (isScrollDown) classList.add("js-top-bar--scroll");
-      }
+      const isScrollInTop = currentScrollPoint === initialScrollPoint;
+      if (isScrollInTop) classList.remove(cssClassTopBarScroll);
+      
+      const isScrollDown = !isScrollInTop && !classList.contains(cssClassTopBarScroll);
+      if (isScrollDown) classList.add(cssClassTopBarScroll);
+    }
+
+    const handleUserResize = () => {
+      if (!state.didUserResize) return;
+      setDidUserResize(false);
+
+      const { classList } = $navigation;
+      const containsHiddenClass = classList.contains(cssClasssHidden);
+      const isMinWidth768px = window.innerWidth >= 768;
+
+      // this runs just one time after resize to mobile
+      if (!isMinWidth768px && state.isDesktop) classList.add(cssClasssHidden);
+
+      // this runs anytime fater resize to desktop
+      isMinWidth768px ? setIsDesktop(true) : setIsDesktop (false);
+      if (state.isDesktop && containsHiddenClass) classList.remove(cssClasssHidden); 
     }
 
     const handleScroll = () => setDidUserScroll(true);
+    const handleResize = () => setDidUserResize(true);
+    const handleInterval = () => {
+      handleUserScroll();
+      handleUserResize();
+    }
 
     $button.addEventListener("click", handleClick);
-    window.setInterval(handleUserScroll, miliseconds);
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    window.setInterval(handleInterval, miliseconds);
+    
   </script>
 </body>
 </html>
