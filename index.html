@@ -275,6 +275,12 @@
 
       .navigation__link--button {
         background-color: var(--white);
+        transition: all .2s linear;
+      }
+
+      .navigation__link--button:hover {
+        color: var(--white);
+        background-color: var(--blue-sky-light);
       }
 
       .js-top-bar--scroll .navigation {
@@ -365,6 +371,7 @@
       padding: 64px 28px 62px;
       display: grid;
       grid-auto-rows: auto;
+      align-content: start;
       justify-items: center;
       row-gap: 29px;
     }
@@ -394,6 +401,7 @@
 
     .transform__link {
       position: relative;
+      z-index: 0;
       display: inline-block;
       font-family: "Fraunces";
       font-size: 16px;
@@ -417,6 +425,11 @@
       transform: translateX(-49%);
       border-radius: 5px;
       background-color: var(--yellow-light);
+      transition: background-color .2s linear;  
+    }
+
+    .transform__link:hover::before {
+      background-color: var(--yellow);
     }
 
     @media only screen and (min-width:768px) {
@@ -424,6 +437,15 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         direction: rtl;
+      }
+
+      .transform__info {
+        justify-items: end;
+      }
+
+      .transform__info > * {
+        text-align: left;
+        max-width: none;
       }
     }
 
@@ -447,13 +469,17 @@
       padding: 64px 28px 62px;
       display: grid;
       grid-auto-rows: auto;
+      align-content: start;
       justify-items: center;
       row-gap: 29px;
     }
 
-    .stand-out__title {
+    .stand-out__info > * {
       max-width: 320px;
       text-align: center;
+    }
+
+    .stand-out__title {
       font-family: "Fraunces";
       font-weight: 900;
       font-size: 33px;
@@ -464,10 +490,8 @@
     }
 
     .stand-out__description {
-      max-width: 320px;
       font-family: "Barlow";
       font-size: 18px;
-      text-align: center;
       line-height: 30px;
       margin-top: -5px;
       letter-spacing: -0.1px;
@@ -475,6 +499,7 @@
 
     .stand-out__link {
       position: relative;
+      z-index: 0;
       display: inline-block;
       font-family: "Fraunces";
       font-size: 16px;
@@ -498,13 +523,26 @@
       transform: translateX(-49%);
       border-radius: 5px;
       background-color: var(--soft-red-light);
+      transition: background-color .2s linear;
+    }
+
+    .stand-out__link:hover::before {
+        background-color: var(--soft-red);
     }
 
     @media only screen and (min-width:768px) {
       .stand-out {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+      }
 
+      .stand-out__info {
+        justify-items: start
+      }
+
+      .stand-out__info > * {
+        text-align: left;
+        max-width: none;
       }
     }
 
@@ -730,6 +768,11 @@
 
     .footer__nav-item {
       color: var(--dark-desaturated-cyan);
+      transition: color .2s linear;
+    }
+
+    .footer__nav-item:hover {
+      color: var(--white);
     }
 
     .footer__social-networks {
@@ -808,9 +851,9 @@
         <img
           class="transform__img"
           src="./images/mobile/image-transform.jpg"
-          alt="Egg"
           height="312"
-        >
+          alt="Egg"
+        />
       </div>
       <div class="transform__info">
         <h2 class="transform__title">Transform your brand</h2>
@@ -825,10 +868,10 @@
         <img
           class="stand-out__img"
           src="./images/mobile/image-stand-out.jpg"
+          height="312"
           alt="Glass"
         />
       </div>
-        
       <div class="stand-out__info">
         <h2 class="stand-out__title">Stand out to the right audience</h2>
         <p class="stand-out__description">Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places. 
