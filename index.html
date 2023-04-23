@@ -635,6 +635,11 @@
 
 
     /* ######################### SECTION: creativity ######################### */
+    .creativity {
+      max-width: 100%;
+      overflow: hidden;
+    }
+
     .graphic-design,
     .photography {
       padding: 105% 24px 58px;
@@ -850,7 +855,6 @@
       .testimony__labor {
         margin-right: 18px;
       }
-
     }
 
     /* ######################### SECTION: decoration ######################### */
@@ -886,6 +890,34 @@
     .decoration__scale-helper {
       padding-top: 100%;
       height: auto;
+    }
+
+    @media only screen and (min-width:768px) {
+      .decoration {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: var(--max-content-width);
+        margin: 0 auto;
+      }
+
+      .decoration__item:nth-of-type(1) {
+        background-image: url('./images/desktop/image-gallery-milkbottles.jpg');
+      }
+      
+      .decoration__item:nth-of-type(2) {
+        background-image: url('./images/desktop/image-gallery-orange.jpg');
+      }
+
+      .decoration__item:nth-of-type(3) {
+        background-image: url('./images/desktop/image-gallery-cone.jpg');
+      }
+
+      .decoration__item:nth-of-type(4) {
+        background-image: url('./images/desktop/image-gallery-sugar-cubes.jpg');
+      }
+
+      .decoration__scale-helper {
+        padding-top: 124%;
+      }
     }
 
     /* ######################### FOOTER ######################### */
@@ -934,6 +966,12 @@
       fill: var(--white);
     }
 
+    @media only screen and (min-width:768px) {
+      .footer {
+        padding-top: 72px;
+        padding-bottom: 70px;
+      }
+    }
 
     /* ######################### ATTRIBUTION ######################### */
     .attribution {
