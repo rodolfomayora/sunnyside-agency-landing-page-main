@@ -114,7 +114,6 @@
 
     @media only screen and (min-width:768px) {
       .container {
-        box-sizing: content-box;
         max-width: var(--max-content-width);
         margin: 0 auto;
         padding-left: 40px;
@@ -125,7 +124,7 @@
     /* ######################### NAVIGATION TOP ######################### */
     .top-bar {
       position: fixed;
-      z-index: 1;
+      z-index: 10;
       top: 0;
       left: 0;
       right: 0;
@@ -351,20 +350,10 @@
     }
 
     /* ######################### SECTION: transform ######################### */
-    /* .transform {
-      height: 600px;
-      border: solid 2px var(--yellow);
-      
-    } */
-
-    /* .transform__img-wrapper {
-      background-color: var(--yellow  );
-    } */
-    
     .transform__img {
-      max-height: 100%;
-      max-width: 100%;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .transform__info {
@@ -375,7 +364,6 @@
       justify-items: center;
       row-gap: 29px;
     }
-
 
     .transform__title {
       max-width: 320px;
@@ -408,6 +396,7 @@
       font-weight: 900;
       line-height: 30px;
       margin-right: 3px;
+      padding: 0 8px;
       letter-spacing: .4px;
       text-transform: uppercase;
       color: var(--black);
@@ -420,7 +409,7 @@
       content: "";
       display: inline-block;
       left: 50%;
-      width: 114%;
+      width: 100%;
       height: 10px;
       transform: translateX(-49%);
       border-radius: 5px;
@@ -434,35 +423,76 @@
 
     @media only screen and (min-width:768px) {
       .transform {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .transform::after {
+        content: "";
+        position: absolute;
+        z-index: inherit;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 50vw;
+        background-image: linear-gradient(
+          135deg,
+          var(--yellow),
+          #ffd401
+        );
+      }
+
+      .transform__container {
+        position: relative;
+        z-index: 1;
+
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
         direction: rtl;
+        max-height: 600px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: var(--max-content-width);
+        margin: 0 auto;
+      }
+
+      .transform__img-wrapper {
+        max-height: inherit;
+        position: relative;
       }
 
       .transform__info {
-        justify-items: end;
+        direction: ltr;
+        justify-content: center;
+        align-content: center;
+        justify-items: start;
+
+        row-gap: 37px;
+        padding: 43px 20px 40px 81px;
       }
 
       .transform__info > * {
         text-align: left;
-        max-width: none;
+        max-width: 450px;
+      }
+
+      .transform__title {
+        font-size: 30px;
+        line-height: 34px;
+      }
+    }
+
+    @media only screen and (min-width:992px) {
+      .transform__title {
+        font-size: 41px;
+        line-height: 50px;
       }
     }
 
 
     /* ######################### SECTION: stand out ######################### */
-    /* .stand-out {
-      height: 600px;
-    } */
-
-    /* .stand-out__img-wrapper {
-      background-color: var(--soft-red);
-    } */
-
     .stand-out__img {
-      max-height: 100%;
-      max-width: 100%;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .stand-out__info {
@@ -506,6 +536,7 @@
       font-weight: 900;
       line-height: 30px;
       margin-right: 3px;
+      padding: 0 8px;
       letter-spacing: .4px;
       text-transform: uppercase;
       color: var(--black);
@@ -518,7 +549,7 @@
       content: "";
       display: inline-block;
       left: 50%;
-      width: 114%;
+      width: 100%;
       height: 10px;
       transform: translateX(-49%);
       border-radius: 5px;
@@ -532,17 +563,73 @@
 
     @media only screen and (min-width:768px) {
       .stand-out {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stand-out::after {
+        content: "";
+        position: absolute;
+        z-index: inherit;
+        right: 50%;
+        top: 0;
+        bottom: 0;
+        width: 50vw;
+        background-image: linear-gradient(
+          to bottom,
+          #fe7a6b,
+          #ff8173 40%,
+          #fd7867 80%,
+          #ff8073
+        );
+      }
+
+      .stand-out__container {
+        position: relative;
+        z-index: 1;
+
         display: grid;
+        max-height: 600px;
         grid-template-columns: repeat(2, 1fr);
+        max-width: var(--max-content-width);
+        margin: 0 auto;
+        padding-top: 1px;
+      }
+
+      .stand-out__img-wrapper {
+        max-height: inherit;
+        position: relative;
       }
 
       .stand-out__info {
-        justify-items: start
+        justify-content: center;
+        align-content: center;
+        justify-items: start;
+
+        row-gap: 37px;
+        padding: 43px 81px 40px 31px;
       }
 
       .stand-out__info > * {
         text-align: left;
-        max-width: none;
+        max-width: 450px;
+      }
+
+      .stand-out__info > * {
+        text-align: left;
+        max-width: 450px;
+      }
+
+      .stand-out__title {
+        font-size: 30px;
+        line-height: 34px;
+      }
+    }
+
+    @media only screen and (min-width:992px) {
+      .stand-out__title {
+        font-size: 41px;
+        line-height: 50px;
       }
     }
 
@@ -847,36 +934,40 @@
 
   <main>
     <section class="transform">
-      <div class="transform__img-wrapper">
-        <img
-          class="transform__img"
-          src="./images/mobile/image-transform.jpg"
-          height="312"
-          alt="Egg"
-        />
-      </div>
-      <div class="transform__info">
-        <h2 class="transform__title">Transform your brand</h2>
-        <p class="transform__description">We are a full-service creative agency specializing in helping brands grow fast. 
-          Engage your clients through compelling visuals that do most of the marketing for you.</p>
-        <a class="transform__link" href="#0">Learn more</a>
+      <div class="transform__container">
+        <div class="transform__img-wrapper">
+          <img
+            class="transform__img"
+            src="./images/mobile/image-transform.jpg"
+            height="312"
+            alt="Egg"
+          />
+        </div>
+        <div class="transform__info">
+          <h2 class="transform__title">Transform your brand</h2>
+          <p class="transform__description">We are a full-service creative agency specializing in helping brands grow fast. 
+            Engage your clients through compelling visuals that do most of the marketing for you.</p>
+          <a class="transform__link" href="#0">Learn more</a>
+        </div>
       </div>
     </section>
 
     <section class="stand-out">
-      <div class="stand-out__img-wrapper">
-        <img
-          class="stand-out__img"
-          src="./images/mobile/image-stand-out.jpg"
-          height="312"
-          alt="Glass"
-        />
-      </div>
-      <div class="stand-out__info">
-        <h2 class="stand-out__title">Stand out to the right audience</h2>
-        <p class="stand-out__description">Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places. 
-        </p>
-        <a class="stand-out__link">Learn more</a>
+      <div class="stand-out__container">
+        <div class="stand-out__img-wrapper">
+          <img
+            class="stand-out__img"
+            src="./images/mobile/image-stand-out.jpg"
+            height="312"
+            alt="Glass"
+          />
+        </div>
+        <div class="stand-out__info">
+          <h2 class="stand-out__title">Stand out to the right audience</h2>
+          <p class="stand-out__description">Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places. 
+          </p>
+          <a class="stand-out__link">Learn more</a>
+        </div>
       </div>
     </section>
 
