@@ -443,7 +443,7 @@
       }
 
       .transform__container {
-        position: relative;
+        position: inherit;
         z-index: 1;
 
         display: grid;
@@ -585,7 +585,7 @@
       }
 
       .stand-out__container {
-        position: relative;
+        position: inherit;
         z-index: 1;
 
         display: grid;
@@ -633,17 +633,14 @@
       }
     }
 
-    /* ######################### SECTION: creativity ######################### */
-    /* .creativity {
-      height: 600px;
-    } */
 
+    /* ######################### SECTION: creativity ######################### */
     .graphic-design,
     .photography {
       padding: 105% 24px 58px;
       background-repeat: no-repeat;
       background-position: top center;
-      background-size: 100%;
+      background-size: cover;
       text-align: center;
     }
 
@@ -671,7 +668,6 @@
     }
 
     .photography__title {
-      padding-right: 3px;
       padding-right: 12px;
     }
 
@@ -685,8 +681,71 @@
 
     @media only screen and (min-width:768px) {
       .creativity {
+        position: relative;
+        z-index: 0;
+        max-height: 600px;
+      }
+
+      .creativity::before {
+        content: "";
+        position: absolute;
+        z-index: inherit;
+        right: 50%;
+        top: 0;
+        bottom: 0;
+        width: 50vw;
+        background-image: linear-gradient(
+          to bottom,
+          #9edccd,
+          #a0ddce 30%,
+          #98d8c8
+        );
+      }
+
+      .creativity::after {
+        content: "";
+        position: absolute;
+        z-index: inherit;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 50vw;
+        background-image: linear-gradient(
+          to bottom,
+          #4bcaff,
+          #59d4fe 40%,
+          #49c7ff 47%,
+          #54d1ff 60%,
+          #5cd2ff  80%
+        );
+      }
+
+      .creativity__content {
+        position: inherit;
+        z-index: 1;
+
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        max-width: var(--max-content-width);
+        margin: 0 auto
+      }
+
+      .graphic-design,
+      .photography {
+        padding-top: 55%;
+      }
+
+      .graphic-design {
+        background-image: url("./images/desktop/image-graphic-design.jpg");
+      }
+
+      .photography {
+        background-image: url("./images/desktop/image-photography.jpg");
+      }
+
+      
+      .photography__title {
+        padding-right: 0;
       }
     }
 
@@ -936,6 +995,12 @@
     <section class="transform">
       <div class="transform__container">
         <div class="transform__img-wrapper">
+          <picture>
+            <source
+              media="(min-width:768px)"
+              srcset="./images/desktop/image-transform.jpg"  
+            />
+          </picture>
           <img
             class="transform__img"
             src="./images/mobile/image-transform.jpg"
@@ -955,12 +1020,18 @@
     <section class="stand-out">
       <div class="stand-out__container">
         <div class="stand-out__img-wrapper">
-          <img
-            class="stand-out__img"
-            src="./images/mobile/image-stand-out.jpg"
-            height="312"
-            alt="Glass"
-          />
+          <picture>
+            <source
+              media="(min-width:768px)"
+              srcset="./images/desktop/image-stand-out.jpg"
+            />
+            <img
+              class="stand-out__img"
+              src="./images/mobile/image-stand-out.jpg"
+              height="312"
+              alt="Glass"
+            />
+          </picture>
         </div>
         <div class="stand-out__info">
           <h2 class="stand-out__title">Stand out to the right audience</h2>
@@ -972,15 +1043,17 @@
     </section>
 
     <div class="creativity">
-      <section class="graphic-design">
-        <h3 class="graphic-design__title">Graphic design</h3>
-        <p class="graphic-design__description">Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</p>
-      </section>
-
-      <section class="photography">
-        <h3 class="photography__title">Photography</h3>
-        <p class="photography__description">Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</p>
-      </section>
+      <div class="creativity__content">
+        <section class="graphic-design">
+          <h3 class="graphic-design__title">Graphic design</h3>
+          <p class="graphic-design__description">Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</p>
+        </section>
+  
+        <section class="photography">
+          <h3 class="photography__title">Photography</h3>
+          <p class="photography__description">Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</p>
+        </section>
+      </div>
     </div>
 
     <section class="testimonials">
